@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'app/index.css' %}">
+    <link rel="stylesheet" href="{% static 'app/includes/footer.css' %}">
+{% endblock  %}
+
+{% block title %}Hardik' Blog{% endblock  %}
+
+
+{% block content1 %}
+    {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle welcomeuser" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Welcome {{user}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'signup' %}">Sign Up</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+        </li>
+    {% endif %}
+
+{% endblock  %}
+
+
+{% block content %}
+
+    <section id="welcome">
+        <div class="container d-flex justify-content-center align-items-center flex-column">
+            <div class="image mt-4">
+                <img src="{% static 'app/images/hardik.jpg' %}" alt="Hardik' Blog" class="img-fluid rounded-circle">
+            </div>
+            <div class="text text-center mt-5">
+                <p>Hi! I am Hardik Grover. Welcome to my Blog!</p>
+            </div> 
+        </div>
+    </section>
+
+    
+
+
+    <section class="latest-posts">
+        <div class="container">
+            <div class="parent_box mt-2 pt-2">
+                <h1 class="display-3 text-center mt-5">Latest Posts</h1>
+                <div class="row mt-5">
+                    {% for post in latest_posts %}
+                        <div class="col-lg-4">
+                            <a href="{% url 'post_detail' post.slug %}" class="anchor">
+                                <div class="card mx-auto mb-lg-0 mb-4" style="width: 18rem;">
+                                    <img src="{{post.image.url}}" class="card-img-top img-fluid" alt="{{post.title}}}">
+                                    <div class="card-body">
+                                        <p class="card-text">{{post.excerpt}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                    {% endfor %}
+                </div>
+            </div> 
+        </div>
+    </section>
+
+    <section>
+        {% include 'app/includes/footer.html' %}
+    </section>
+
+{% endblock %}

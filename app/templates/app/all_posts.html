@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'app/all_posts.css' %}">
+    <link rel="stylesheet" href="{% static 'app/includes/footer.css' %}">
+{% endblock  %}
+
+{% block content %}
+    <section id="all_posts">
+        <div class="container">
+            <div class="parent_box mt-2 pt-2">
+                <div class="row mt-5">
+                    {% for post in all_posts_show %}
+                        <div class="col-lg-4">
+                            <a href="{% url 'post_detail' post.slug %}" class="anchor">
+                                <div class="card mx-auto mb-lg-0 mb-4" style="width: 18rem;">
+                                    <img src="{{post.image.url}}" class="card-img-top img-fluid" alt="{{post.title}}}">
+                                    <div class="card-body">
+                                        <p class="card-text">{{post.excerpt}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                    {% endfor %}
+                </div>
+            </div> 
+        </div>
+    </section>
+
+    <section>
+        {% include 'app/includes/footer.html' %}
+    </section>
+{% endblock  %}

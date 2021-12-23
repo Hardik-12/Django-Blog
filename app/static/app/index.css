@@ -1,0 +1,69 @@
+#welcome{
+    background: linear-gradient(to right top,  #390281, #6305dd);
+    
+}
+
+#welcome img {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    object-position: top;
+    border: 5px solid white;
+    border-radius: 12px;
+    background-color: #ffe1bf;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.text{
+    max-width: 47%;
+}
+
+.text p{
+    font-size: 1.2rem;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card-img-top{
+    height: 190px;
+    width: 430px;
+}
+
+.card{
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card:hover{
+    transform: scale(110%);
+}
+
+.anchor{
+    text-decoration: none;
+    color: black;
+}
+
+.anchor:hover{
+    color: black;
+}
+
+.welcomeuser{
+    color: rgb(230, 224, 224) !important;
+}
+
+@media (min-width: 280px) and (max-width: 499px){
+    
+    .text{
+        max-width: 67%;
+    }
+
+}
+
+@media (min-width: 500px) and (max-width: 700px){
+    
+    .text{
+        max-width: 60%;
+    }
+
+}
+

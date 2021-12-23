@@ -1,0 +1,182 @@
+.imgs{
+    height: 280px;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+
+.title{
+    margin: 16px;
+    padding-top: 3rem;
+    font-weight: bold;
+}
+
+.img{
+    width: 12rem;
+    height: 12rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.post{
+    color: white;
+    text-decoration: none;
+}
+
+.post:hover{
+    color: white;
+}
+
+.btns{
+    box-shadow: none;
+}
+
+
+.author{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+.date{
+    position: relative;
+    top: 2px;
+}
+
+.content{
+    color: black;
+    font-weight: 600;
+}
+
+
+.submit{
+    display: block;
+    
+}
+
+
+input[type=text], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  input[type=email]{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    height: 45px;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .form-comment {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+    
+  }
+  
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .comm{
+    color: black;
+    text-decoration: none;
+  }
+
+  .comm:hover{
+    color: blue;
+  }
+
+
+  .like{
+    color: black;
+    text-decoration: none;
+  }
+
+  .like:hover{
+    color: blue;
+  }
+
+  .button_read{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    height: 35px;
+    width: auto;
+    background-color: #fff;
+    border: 1px solid grey;
+    border-radius: 7px;
+  }
+
+  .button_read:hover{
+    background-color: rgb(146, 142, 142);
+    color: white;
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+
+@media (min-width: 280px) and (max-width: 291px){ 
+    .author{
+        font-size: 1.2rem;
+    }
+
+    .date{
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (min-width: 280px) and (max-width: 575px){ 
+  .button_read{
+    position: absolute;
+    left: 18px;
+  }
+}

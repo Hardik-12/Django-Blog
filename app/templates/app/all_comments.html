@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'app/all_comments.css' %}">
+{% endblock  %}
+
+
+{% block content %}
+    <section class="allComments">
+        <div class="container">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 navi mt-5">
+                {% for comment in all_comments %}
+                    <div class="items">
+                        <li class="nav-item">
+                            <i class="fas fa-sun"></i>&nbsp;&nbsp;<a class="nav-link active d-inline" aria-current="page" href="">{{comment.user_name}}</a>
+                            <span>&nbsp;{{comment.Date}}</span>
+                            <p class="mt-2">{{comment.text}}</p>
+                        </li>
+                    </div>
+                {% endfor %} 
+            </ul>
+        </div>
+    </section>
+{% endblock  %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'app/stored-posts.css' %}">
+{% endblock  %}
+
+{% block title %}
+    My Stored Posts
+{% endblock  %}
+
+{% block content %}
+    <section class="stored_posts">
+        <div class="container">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 navi mt-5 stored">
+                {% if has_posts %}
+                    <div class="row mt-5">
+                        {% for post in posts %}
+                            <div class="col-lg-4">
+                                <a href="{% url 'post_detail' post.slug %}" class="anchor">
+                                    <div class="card mx-auto mb-lg-0 mb-4" style="width: 18rem;">
+                                        <img src="{{post.image.url}}" class="card-img-top img-fluid" alt="{{post.title}}}">
+                                        <div class="card-body">
+                                            <p class="card-text">{{post.excerpt}}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </ul>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,39 @@
+.card-img-top{
+    height: 200px;
+    
+}
+
+
+.card{
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card:hover{
+    transform: scale(110%);
+}
+
+
+.anchor{
+    text-decoration: none;
+    color: black;
+}
+
+.anchor:hover{
+    color: black;
+}
+
+
+.nav-item{
+    text-align: center;
+    
+}
+
+.nav-link{
+    color: black;
+}
+
+.post_image{
+    height: 20px;
+    width: 30px;
+}

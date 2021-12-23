@@ -1,0 +1,62 @@
+
+
+.side_des p{
+    max-width: 500px;
+}
+
+
+.quick_links li{
+    list-style: none;
+}
+
+.quick_links li a{
+    text-decoration: none;
+    color: white;
+}
+
+.fas{
+   margin-right: 10px;
+}
+
+
+
+
+.link{
+    color: white;
+    text-decoration: none;
+    
+}
+
+.link:hover{
+    color: rgb(37, 37, 236);
+}
+
+.footer{
+    height: 430px;
+}
+
+@media (min-width: 280px) and (max-width: 303px){
+    .link{
+        position: relative;
+        right: 1.3rem;
+    }
+
+    .fa-envelope-open-text{
+        position: relative;
+        left: 4rem;
+    }
+}
+
+
+@media (min-width: 280px) and (max-width: 380px){
+    .footer{
+        height: 49rem;
+    }
+}
+
+
+@media (min-width: 381px) and (max-width: 767px){
+    .footer{
+        height: 38rem;
+    }
+}

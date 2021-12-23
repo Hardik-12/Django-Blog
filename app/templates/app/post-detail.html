@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'app/post-detail.css' %}">
+{% endblock  %}
+
+
+{% block content %}
+
+    <div class="post-description">
+        <h1 class="display-4 title text-left text-sm-center">{{post.title}}</h1>
+        <div class="d-flex justify-content-sm-center">
+            <h5 class="mx-sm-2 mx-3">By <a href="mailto:{{post.author.email}}" class="author">{{post.author}}</a></h5>
+            <p class="mx-sm-2 date"><time>{{post.date|date:"d M Y"}}</time></p>
+        </div>
+        
+        <form action="{% url 'read-later' %}" method="POST" class="text-center">
+            {% csrf_token %}
+            <input type="hidden" value="{{post.id}}" name="post_id">
+            <button class="button_read">
+                {% if saved_for_later %}
+                    Remove from "Read Later" List
+                {% else %}
+                    Read Later
+                {% endif %}
+            </button>
+        </form> 
+    </div>
+    
+    <div class="container hero mt-5">
+        <div class="jumbotron">
+            <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid imgs">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="post_description mt-4 pt-4">
+            <p class="content">{{post.content}}</p>
+        </div>
+        
+        <div class="like-comment">
+            <a href="{% url 'all_comments' post.slug %}" class="comm d-inline"><i class="fas fa-comment"></i>&nbsp;{{count}}</a>
+        </div>
+        
+        <p class="lead mt-2">If you  have any comments about the post you can give them below!</p>
+
+
+        <div class="form-comment">
+            <form action="{% url 'post_detail' post.slug %}", method="POST" class="form-comment mt-5 pt-2">
+                <h1 class="text-center mb-5">Your Comment</h1>
+                {% csrf_token %}
+                
+                {% for form_field in comment_form %}
+                    <div class="mb-3 row {% if form_field.errors %} invalid {% endif %} ">
+                        <div class="col-25">
+                            {{form_field.label_tag}}
+                        </div>
+                        <div class="col-75">
+                            {{form_field}}
+                        </div>
+                        <div class="col-25">
+                            {{form.field.errors}}
+                        </div>
+                        
+                    </div>
+                    
+                {% endfor %}
+                {% comment %} <button class="btn btn-success mb-3 submit" type="submit">Save Comment</button> {% endcomment %}
+                <div class="row">
+                    <input type="submit" value="Submit" class="ms-auto">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

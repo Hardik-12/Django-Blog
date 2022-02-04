@@ -60,7 +60,7 @@ def Index(request):
     })
 
 
-
+@login_required(login_url="login")
 def AllPosts(request):
     AllPosts = Post.objects.all()
     return render(request, "app/all_posts.html",{
@@ -68,7 +68,7 @@ def AllPosts(request):
     })
 
 
-
+@login_required(login_url="login")
 def PostDetail(request, slug):
     post_render = Post.objects.get(slug = slug)
     count_comments = post_render.comments.all().count()
@@ -105,6 +105,7 @@ def PostDetail(request, slug):
         "saved_for_later": is_saved_for_later
     })
 
+login_required(login_url="login")
 def AllComments(request, slug):
     part_post = Post.objects.get(slug = slug)
     post_comments = part_post.comments.all()
@@ -112,6 +113,7 @@ def AllComments(request, slug):
         "all_comments": post_comments
     })
 
+login_required(login_url="login")
 def ReadLater(request):
     # We have to maintain a lists of posts which we store in session.
     

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Source+Sans+Pro&display=swap');
+
 .imgs{
     height: 280px;
     border-radius: 10px;
@@ -48,7 +51,11 @@
 
 .content{
     color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+    word-spacing: 3px;
     font-weight: 600;
+    font-size: 18px;
 }
 
 

@@ -9,7 +9,12 @@
 {% block content %}
 
     <div class="post-description">
-        <h1 class="display-4 title text-left text-sm-center">{{post.title}}</h1>
+        {% if post.title == "Basics of clock related aptitude" %}
+            <h1 class="display-4 title text-left text-sm-center">{{post.title}} &nbsp;<i class="fas fa-clock"></i></h1>        
+        {% else %}
+            <h1 class="display-4 title text-left text-sm-center">{{post.title}}</h1>
+        {% endif %}
+        
         <div class="d-flex justify-content-sm-center">
             <h5 class="mx-sm-2 mx-3">By <a href="mailto:{{post.author.email}}" class="author">{{post.author}}</a></h5>
             <p class="mx-sm-2 date"><time>{{post.date|date:"d M Y"}}</time></p>
